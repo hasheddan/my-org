@@ -1,0 +1,35 @@
+apiVersion: apiextensions.crossplane.io/v1alpha1
+kind: CompositeResourceDefinition
+metadata:
+  name: clusters.kubernetes.my.org
+spec:
+  connectionSecretKeys:
+  - kubeconfig
+  crdSpecTemplate:
+    group: kubernetes.my.org
+    version: v1alpha1
+    names:
+      kind: Cluster
+      listKind: ClusterList
+      plural: clusters
+      singular: cluster
+    validation:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              nodes:
+                type: integer
+                description: Number of nodes in the cluster
+              providerRef:
+                type: object
+                description: Provider credentials to use.
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+            required:
+            - providerRef

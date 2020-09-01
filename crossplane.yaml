@@ -1,0 +1,18 @@
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: Configuration
+metadata:
+  name: myorg-cnp
+  annotations:
+    company: MyOrg
+    maintainer: Dan Mangum <dan@my.org>
+    keywords: cloud-native, kubernetes, aws, eks
+    source: github.com/hasheddan/my-org
+    license: Apache-2.0
+    description: |
+      Cloud Native Platform for MyOrg. 
+spec:
+  dependsOn:
+  - package: crossplane/provider-aws
+    version: v0.11.1
+  ignore:
+  - path: examples/
