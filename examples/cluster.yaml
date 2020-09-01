@@ -1,0 +1,11 @@
+apiVersion: kubernetes.my.org/v1alpha1
+kind: Cluster
+metadata:
+  name: app-cluster-1
+spec:
+  writeConnectionSecretToRef:
+    name: cluster-conn
+    namespace: default
+  nodes: 3
+  providerRef:
+    name: aws-provider
