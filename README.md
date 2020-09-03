@@ -11,5 +11,5 @@ To install the MyOrg Cloud Native Platform into your Crossplane, run the
 following command:
 
 ```
-crank configuration install hasheddan/myorg:v0.1.0
+crank configuration install -o hasheddan -t v0.1.0 myorg-cnp
 ```
